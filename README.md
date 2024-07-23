@@ -1,5 +1,5 @@
 # MyelinQuant
-![MyelinQuant_Logo_Final](https://github.com/user-attachments/assets/54b4c26e-0d1a-4334-9804-a07f5bea3bc8)
+![MyelinQuant_Logo_Final](https://github.com/user-attachments/assets/54b4c26e-0d1a-4334-9804-a07f5bea3bc8) width="12" height="12"
 <img src="[https://github.com/user-attachments/assets/54b4c26e-0d1a-4334-9804-a07f5bea3bc8]" width="12" height="12">
 
 
