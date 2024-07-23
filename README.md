@@ -22,7 +22,7 @@ tbd
 
 # Pipeline
 Preparatory steps:
-+ A digitised high-resolution image of the histological sample is required. 
++ A digitised high-resolution image of the histological sample is required
 
 Script:
 + Import the image
@@ -38,7 +38,7 @@ Script:
   
 
 # Usage
-+ Download the python script.
++ Download the python script
 + Define the path where you have located your digitised histological image 
 + Define the path where you want to save the area fraction maps
 
