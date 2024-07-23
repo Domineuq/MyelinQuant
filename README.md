@@ -1,45 +1,45 @@
 # MyelinQuant
-![MyelinQuant_Logo_Final](https://github.com/user-attachments/assets/54b4c26e-0d1a-4334-9804-a07f5bea3bc8) img width="12" height="12"
-<img src="[https://github.com/user-attachments/assets/54b4c26e-0d1a-4334-9804-a07f5bea3bc8]" width="12" height="12">
+![MyelinQuant_Logo_Final](https://github.com/user-attachments/assets/676509fb-74ac-44b7-944e-7b1deedf57a1)
 
 
 
-### The Identification Tool Using 3D Bone Segmentation and Registration
 
-3DBoneMapper is an automated radiologic identification tool to identify unknown deceased via comparison of postmortem with antemortem computed tomography data. 
-The anatomical structures used for identification are the sternal bone and T5 vertebra. However, potentially any bone structure may be used.
+### The Myelin Quantification Tool
+
+MyelinQuant is a tool for the quantification of myelin density in a digitised histological sample. By automatically adapting the segmentation threshold, this tool is robust to varying staining intensities and tears. No manual interaction is required. Tested with Holmes-Luxol stained histochemical samples.
 
 Created by the [Forensic Medicine and Imaging Research Group](https://dbe.unibas.ch/en/research/imaging-modelling-diagnosis/forensic-medicine-imaging-research-group/).
 If you use it, please cite our publication: 
 tbd
 
 # Requirements
-+ nibabel
++ cv2
++ skimage (filters, morphology)
 + numpy
-+ SimpleITK
-+ os
-+ csv
++ matplotlib (pyplot as plt)
 
-When using FSL FLIRT, FSL has to be installed and the following package is required within the python script:
-+ subprocess
 
 
 # Pipeline
 Preparatory steps:
-+ Convert the CT DICOM files to NIfTI using dcm2niix
-+ Segment the bones (here sternal bone and T5 vertebra) using TotalSegmentator
++ A digitised high-resolution image of the histological sample is required. 
 
 Script:
-+ Import the files
-+ Crop the files (improving registration quality and efficiency)
-+ Register the files
-+ Compute Dice score between postmortem case in question and all registered antemortem cases
-+ Highest Dice score indicates a match. If the Dice score is below a certain threshold, a message shows that the identification is not necessarily correct; other identification methods might have to be used.
++ Import the image
++ Grayscale and Otsu's threshold: binary mask -> tissue: 1, background: 0
++ Splitting original image and binary mask into blocks (e.g., 35x35 pixels)
++ If the block contains enough tissue (more than half of the pixels), it is processed further:
+  + The block is converted to the HSV colour space
+  + Colour thresholds are calculated to identify stained areas
+  + A mask is created to isolate these areas
+  + The masked area is converted to grayscale and blurred
+  + Otsu's thresholding method is applied to create a binary image where myelin areas are identified
++ The fraction of the block area covered by myelin is calculated
   
 
 # Usage
 + Download the python script.
-+ Define the paths where you have located your antemortem and postmortem data, respectively. 
-+ Define the path where you want to save the cropped and registered antemortem data. (The cropping is only performed in the first comparison to improve efficiency. The registered data is deleted after the first postmortem case is processed to save disk space.)
++ Define the path where you have located your digitised histological image 
++ Define the path where you want to save the area fraction maps
 
 # MIT License
