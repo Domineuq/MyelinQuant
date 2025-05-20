@@ -10,7 +10,7 @@ MyelinQuant is a tool for the quantification of myelin density in a digitised hi
 
 Created by the [Forensic Medicine and Imaging Research Group](https://dbe.unibas.ch/en/research/imaging-modelling-diagnosis/forensic-medicine-imaging-research-group/).
 If you use it, please cite our publication: 
-tbd
+Neuhaus D, Wendebourg MJ, Deigendesch N, et al. Exploring Potential Biomarkers for Amyotrophic Lateral Sclerosis Using Postmortem In Situ Magnetic Resonance Imaging. NMR in Biomedicine. 2025;38(6):e70059. doi:10.1002/nbm.70059
 
 # Requirements
 + cv2
